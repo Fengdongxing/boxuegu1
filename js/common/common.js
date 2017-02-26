@@ -1,10 +1,11 @@
 /**
- * Created by ASUS on 2017/2/25.
+ * Created by ASUS on 2017/2/26.
  */
 define(['jquery'],function($){
-    console.log('888');
-
-
+    //
+    $('.navs a').on('click',function(){
+        $(this).next().slideToggle();
+    });
 
     $.ajax({
         url: '/v6/login',
@@ -14,10 +15,10 @@ define(['jquery'],function($){
             tc_pass: 123456
         },
         success: function() {
-            console.log('≥…¡À')
+            console.log('Êàê‰∫Ü')
         },
         error: function() {
-            console.log('∞‹¡À')
+            console.log('Ë¥•‰∫Ü')
         }
     });
-})
+});
