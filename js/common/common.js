@@ -19,6 +19,15 @@ define(['jquery','jqueryCookie'],function($,undefined){
             }
         })
     });
+
+    //发起ajax时显示图片，完成后就没有的功能
+    $(document).on('ajaxStart', function () {
+        $('.overlay').show();
+    }).on('ajaxStop',function(){
+        $('.overlay').hide();
+    });
+
+
 //### 上传头像
 //
 //    > 用户上传自定义头像

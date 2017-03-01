@@ -9,7 +9,7 @@ requirejs.config({
         jqueryCookie:'lib/jquery-cookie/jquery.cookie',//
         //配置进度条插件
         nprogress:'lib/nprogress/nprogress',
-
+        template:'lib/artTemplate-3.0.1/template',
 
 
         // 自己写的路径配置
@@ -56,7 +56,7 @@ require(['nprogress'],function(nprogress){
     nprogress.start();
 });
 // 所有的页面都需要这两个js，先加载他们。
-require(['jquery', 'bootstrap','common']);//
+require(['jquery', 'bootstrap','common','template']);//
 
 /*
  *这里获取页面的pathname，然后对应的加载js。
