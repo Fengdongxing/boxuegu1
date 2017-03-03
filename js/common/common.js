@@ -75,7 +75,8 @@ define(['jquery','jqueryCookie'],function($,undefined){
 
     //然后展示到左侧栏
     $('.aside .profile h4').html(userInfo.tc_name? userInfo.tc_name:'dagenimeiminga');
-    $('.aside .profile img').attr('src',userInfo.tc_avatar? userInfo.tc_avatar:'/img/default.png');
+    $('.aside .profile img').attr('src',userInfo.tc_avatar? userInfo.tc_avatar:'/img/hometown.webp');
+    //$('.aside .profile img');attr('src','/img/hometown.webp')
 
     //不同的页面侧面栏背景高亮显示
     var pathname = window.location.pathname
@@ -93,4 +94,5 @@ define(['jquery','jqueryCookie'],function($,undefined){
     //    //    })
     //   }
     //};
+
 });

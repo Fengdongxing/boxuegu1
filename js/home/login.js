@@ -6,12 +6,13 @@ define(['jquery','jqueryCookie','nprogress'],function($,undefined,nprogress){
      //在首页显示用户的头像，有就显示没有就默认
     var userInfo = null;
     try{
-        userInfo = JSON.parse($.cookie('userInfo'));
+        userInfo = JSON.parse($.cookie('userInfo'));//转化为一个js对象
+         console.log(userInfo);
     } catch(e){
         userInfo = {};
     }
     //渲染到页面
-   $('.login .avatar img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/default.png');
+   $('.login .avatar img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/hometown.webp');
 
 
     //登录页面的跳转
@@ -19,7 +20,9 @@ define(['jquery','jqueryCookie','nprogress'],function($,undefined,nprogress){
         $.ajax({
             url:'/v6/login',
             type: 'post',
-            data:$(this).serialize(),//这里的this是form表单
+            data:$(this).serialize(),
+            //这里传进的数据是JSON格式,要转换为序列化的字符串
+            //这里的this是form表单
             success:function(data){
                 //如果登录成功，使用cookie的方式保存用户信息，
                 //注意：cookie值必须为字符串，我们得到的是js对象，需要JSON.stringify进行转换

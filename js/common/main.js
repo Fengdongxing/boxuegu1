@@ -10,8 +10,11 @@ requirejs.config({
         //配置进度条插件
         nprogress:'lib/nprogress/nprogress',
         template:'lib/artTemplate-3.0.1/template',
-
-
+        //自己写的功能插件
+        util:'js/common/util',
+        //配置事件插件
+        datepicker:'lib/bootstrap-datepicker/js/bootstrap-datepicker',
+        datepickerLanguage:'lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         // 自己写的路径配置
         userList: 'js/user/list',
         userProfile: 'js/user/profile',
@@ -33,6 +36,10 @@ requirejs.config({
     shim: {
         bootstrap: {
             deps: ['jquery']
+        },
+        //日期插件是依赖bootstrap,而bootstrap又依赖jq
+        datepickerLanguage:{
+            deps:['jquery','datepicker']
         }
     }
 });
