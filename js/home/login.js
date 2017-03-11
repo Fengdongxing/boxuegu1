@@ -14,7 +14,6 @@ define(['jquery','jqueryCookie','nprogress'],function($,undefined,nprogress){
     //渲染到页面
    $('.login .avatar img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/hometown.webp');
 
-
     //登录页面的跳转
     $('#form_login').on('submit',function(){
         $.ajax({

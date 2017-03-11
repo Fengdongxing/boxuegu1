@@ -2,19 +2,24 @@ requirejs.config({
     baseUrl: '/',
     paths: {
         // 第三方库的路径配置
-        jquery: 'lib/jquery/jquery.min',
-        bootstrap: 'lib/bootstrap/js/bootstrap.min',
+        jquery: 'node_modules/jquery/dis/jquery.min',
+        bootstrap: 'node_modules/bootstrap/dis/js/bootstrap.min',
         common:'js/common/common',
         //配置jquerycookie的路径
         jqueryCookie:'lib/jquery-cookie/jquery.cookie',//
         //配置进度条插件
         nprogress:'lib/nprogress/nprogress',
-        template:'lib/artTemplate-3.0.1/template',
+        template:'node_modules/art-template/dis/template',
         //自己写的功能插件
         util:'js/common/util',
         //配置事件插件
         datepicker:'lib/bootstrap-datepicker/js/bootstrap-datepicker',
         datepickerLanguage:'lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        region:'lib/region/jquery.region',
+        //头像上传插件
+        uploadify:'lib/uploadify/jquery.uploadify',
+        ckeditor: 'lib/ckeditor/ckeditor',
+
         // 自己写的路径配置
         userList: 'js/user/list',
         userProfile: 'js/user/profile',
@@ -40,13 +45,15 @@ requirejs.config({
         //日期插件是依赖bootstrap,而bootstrap又依赖jq
         datepickerLanguage:{
             deps:['jquery','datepicker']
+        },
+        uploadify:{
+            deps:['jquery']
+        },
+        ckeditor: {
+            exports: 'CKEDITOR'
         }
     }
 });
-
-
-
-
 /*
  * 登录状态：
  *

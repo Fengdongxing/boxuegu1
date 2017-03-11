@@ -1,7 +1,24 @@
 /**
  * Created by ASUS on 2017/2/25.
  */
-define(['jquery','nprogress'],function($,nprogress){
-    //ÕâÀïÊÇ½ø¶ÈÌõµÄ½áÊø
+define(['jquery','nprogress','common',],function($,nprogress,undefined){
+    //è¿™é‡Œæ˜¯è¿›åº¦æ¡çš„ç»“æŸ
     nprogress.done();
-})
+
+    //å¯†ç ä¿®æ”¹
+   $('#repass-form').on('submit',function(){
+        console.log(1);
+       $.ajax({
+           url:'/v6/teacher/repass',
+           type:'post',
+           data:$(this).serialize(),
+           success:function(data){
+               if(data.code == 200) {
+                   console.log(124);
+                   $('#loginout').trigger('click');
+               }
+           }
+       });
+      return false;
+   });
+});

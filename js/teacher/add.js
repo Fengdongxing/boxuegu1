@@ -26,6 +26,11 @@ define(['jquery','common','nprogress','template','util','datepicker','datepicker
                 var html = template('teacher-form-tpl',data.result);
                 //渲染到容器中
                 $('.teacher-add').html(html);
+                $('#datepicker').datepicker({
+                       language:'zh-CN',
+                       endDate:new Date(),
+                       format:'yyyy-mm-dd',
+               })
             }
         })
         //给表单注册表单提交事件但是现在表单都是动态生成的，只有给他的父元素注册委托事件

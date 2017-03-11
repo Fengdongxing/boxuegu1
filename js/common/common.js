@@ -28,39 +28,6 @@ define(['jquery','jqueryCookie'],function($,undefined){
     });
 
 
-//### 上传头像
-//
-//    > 用户上传自定义头像
-//
-//#### 地址
-//
-//    http://api.botue.com/uploader/avatar
-//
-//        #### 请求
-//
-//    * 请求方式 POST
-//    * 支持格式 multipart/form-data
-//    * 请求参数
-//
-//    | 名称      | 必填 | 类型     | 说明   |
-//    |:--------|:---|:-------|:-----|
-//    | tc_avatar | 是  | stream | 图片格式 |
-//
-//#### 响应
-//
-//    * 数据格式 JSON
-//    * 数据示例
-//
-//```json
-//    {
-//        "code": 200,
-//        "msg": "OK",
-//        "result": {
-//        "path": "http://static.botue.com/images/avatar/58613cba34760.jpg"
-//    }
-//        "time": 1482767547
-//    }
-//```
 
     //在页面中不能用变量存储数据，因为换个页面就刷新，数据就没有了，
     //所以在页面中要存储数据就必须要用cookie或者session就，但session有兼容问题所以用session来存储
@@ -79,7 +46,13 @@ define(['jquery','jqueryCookie'],function($,undefined){
     //$('.aside .profile img');attr('src','/img/hometown.webp')
 
     //不同的页面侧面栏背景高亮显示
-    var pathname = window.location.pathname
+    var a = {
+        '/html/course/add_step1.html':'/html/course/add.html',
+        '/html/course/add_step2.html':'/html/course/add.html',
+        '/html/course/add_step3.html':'/html/course/add.html',
+    }
+    var pathname = window.location.pathname;
+    pathname = a[pathname]?a[pathname] : pathname;
     $('.navs a').removeClass('active').filter('[href="'+pathname+'"]').addClass('active').parents('ul').show();
     //在登录页面，有PHPSESSID的就跳转到首页，没有就不管
     //if(location.href == '/html/home/login.html'){
